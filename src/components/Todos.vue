@@ -1,20 +1,24 @@
 <template>
   <div>
+      <h3>TODOS</h3>
       <div class="todos">
-          <div class="todos__todo" v-for="todo in allTodos" :key="todo.id">
+          <div class="todos__todo" v-for="todo in getTodos" :key="todo.id">
               {{ todo.title }}
+              <i @click="deleteTodo(todo.id)" class="todos__del fa fa-trash"></i>
           </div>
       </div>
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 export default {
     methods:{
-        ...mapActions(['fetchTodos'])
+        ...mapActions(['fetchTodos','deleteTodo']),
     },
-    computed:mapGetters(['allTodos']),
+    computed: {
+        ...mapGetters(['getTodos'])
+    },
     created(){
         this.fetchTodos()
     }
@@ -28,8 +32,13 @@ export default {
     &__todo{
         width: 50%;
         background: green;
+        color: #ffffff;
         padding: 20px;
         border: 1px solid #ffffff;
+    }
+    &__del{
+        cursor: pointer;
+        float: right;
     }
 }
 </style>

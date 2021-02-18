@@ -1,18 +1,25 @@
 <template>
   <div id="app">
     <div class="container">
-      <todos/>
+      <AddTodo/>
+      <br>
+      <FilterTodo/>
+      <Todos/>
     </div>
   </div>
 </template>
 
 <script>
-import todos from './components/Todos'
+import AddTodo from './components/AddTodo'
+import FilterTodo from './components/FilterTodo'
+import Todos from './components/Todos'
 
 export default {
   name: 'App',
   components: {
-    todos,
+    AddTodo,
+    FilterTodo,
+    Todos,
   }
 }
 </script>
@@ -20,15 +27,9 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 *{
-  margin: 0;
-  padding: 0;
-  font-weight: normal; 
-  line-height: 1;
   box-sizing: border-box;
 }
 body{
   font-family: 'Roboto', sans-serif;
-  background: #333333;
-  color: #ffffff;
 }
 </style>
