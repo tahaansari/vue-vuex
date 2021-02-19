@@ -1,21 +1,28 @@
 <template>
   <div>
       Filter
-      <select name="" id="">
+      <select @change="changeFilter" name="" id="">
           <option value="200">200</option>
           <option value="150">150</option>
           <option value="100">100</option>
-          <option value="50">200</option>
-          <option value="20">200</option>
-          <option value="10">200</option>
+          <option value="50">50</option>
+          <option value="20">20</option>
+          <option value="10">10</option>
           <option value="5">5</option>
       </select>
   </div>
 </template>
 
 <script>
+// import {mapActions} from 'vuex'
 export default {
     name:"FilterTodo",
+    methods:{
+        changeFilter(e){
+            console.log('filter change called ',e)
+        }
+    }
+
 }
 </script>
 

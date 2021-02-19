@@ -31,6 +31,9 @@ const actions = {
         await axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
         commit('deleteTodo',id)
     }
+    // async filterTodo({state}, limit){
+
+    // }
 }
 
 export default {
