@@ -1,7 +1,7 @@
 <template>
   <div>
       Filter
-      <select @change="changeFilter" name="" id="">
+      <select @change="changeFilter" name="" id="filter_todo">
           <option value="200">200</option>
           <option value="150">150</option>
           <option value="100">100</option>
@@ -18,12 +18,10 @@ import {mapActions} from 'vuex'
 export default {
     name:"FilterTodo",
     methods:{
-        ...mapActions(['changeFilter']),
-        changeFilter(event){
-            console.log(event)
-            console.log(event.target)
-            // console.log('filter change called ',event.options[event.selectedIndex].value)
-            // this.changeFilter(event.)
+        ...mapActions(['filterTodo']),
+        changeFilter(){
+            let filterValue = document.querySelector('#filter_todo').value;
+            this.filterTodo(filterValue)
         }
     }
 }

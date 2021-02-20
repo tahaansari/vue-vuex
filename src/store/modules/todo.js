@@ -11,7 +11,7 @@ const getters = {
 const mutations = {
     setTodos: (state,todos) => state.todos = todos,
     addTodo: (state,todo) => state.todos.unshift(todo),
-    deleteTodo: (state,id) => state.todos = state.todos.filter( todo => todo.id != id)
+    deleteTodo: (state,id) => state.todos = state.todos.filter( todo => todo.id != id),
 }
 
 const actions = {
@@ -30,10 +30,11 @@ const actions = {
     async deleteTodo({commit},id){
         await axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
         commit('deleteTodo',id)
-    }
-    // async filterTodo({state}, limit){
-
-    // }
+    },
+    async filterTodo({commit},limit){
+        const response = await axios.get(`https://jsonplaceholder.typicode.com/todos?_limit=${limit}`)
+        commit('setTodos',response.data)
+    },
 }
 
 export default {
