@@ -14,15 +14,18 @@
 </template>
 
 <script>
-// import {mapActions} from 'vuex'
+import {mapActions} from 'vuex'
 export default {
     name:"FilterTodo",
     methods:{
-        changeFilter(e){
-            console.log('filter change called ',e)
+        ...mapActions(['changeFilter']),
+        changeFilter(event){
+            console.log(event)
+            console.log(event.target)
+            // console.log('filter change called ',event.options[event.selectedIndex].value)
+            // this.changeFilter(event.)
         }
     }
-
 }
 </script>
 
